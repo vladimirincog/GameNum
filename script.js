@@ -66,7 +66,7 @@ function enterForm() {
         fail.textContent += userNumForm.value + ' ';
 
         if (Number(userNumForm.value) === randomNumber && lives !== 0) {
-            msgWin.style.display = 'block';
+            victory();
         }
         else if (Number(userNumForm.value) < randomNumber) {
             lives--;
@@ -108,7 +108,18 @@ function gameOver() {
     }
 }
 
+function victory(){
+    msgWin.style.display = 'block';
+    btnEnter.disabled = true;
+    btnCleanForm.disabled = true;
+    userNumForm.disabled = true;
+    for (let i = 0; i <= 9; i++) {
+        numberBtnArr[i].disabled = true;
+    }
+}
+
 function newGame() {
+    randomNumber = Math.floor(Math.random() * 100) + 1;
     userNumForm.value = '';
     fail.textContent = '';
     lives = 10;
@@ -126,4 +137,5 @@ function newGame() {
     for (let j = elementRound.length - 1; j >= 0; j--) {
         elementRound[j].style.background = 'black'
     }
+
 }
