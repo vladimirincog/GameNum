@@ -139,3 +139,19 @@ function newGame() {
     }
 
 }
+
+
+document.onkeyup = function (e) {
+    
+    e = e || window.event;
+    
+    if (e.keyCode === 13) {
+    
+     enterForm();
+    
+    }
+    
+     return false;
+    
+    }
+    
